@@ -17,13 +17,13 @@ class ResultCalculator {
             const minValue = parseInt($('#minValue').val());
             const maxValue = parseInt($('#maxValue').val());
             const successRate = parseFloat($('#successRate').val());
-            const trialCount = parseInt($('#trialCount').val());
+            const numberOfAttempts = parseInt($('#numberOfAttempts').val());
             const totalSuccessesSpan = $('#totalSuccesses');
             const totalFailuresSpan = $('#totalFailures');
             
-            let closeResultDetails = trialCount > 10000 ? 1 : 0;
+            let closeResultDetails = numberOfAttempts > 100 ? 1 : 0;
 
-            for (let i = 0; i < trialCount; i++) {
+            for (let i = 0; i < numberOfAttempts; i++) {
                 const dateTime = new Date().toLocaleString();
                 const randomNumber = (Math.random() * (maxValue - minValue)) + minValue;
                 const result = randomNumber <= successRate ? 'Success' : 'Failure';
